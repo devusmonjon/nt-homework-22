@@ -54,7 +54,7 @@ const Page = () => {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products").then(res => res.json()).then(data => setProducts(data.products))
+    fetch("https://dummyjson.com/products?limit=8").then(res => res.json()).then(data => setProducts(data.products))
   }, [])
   return (
     <div>
