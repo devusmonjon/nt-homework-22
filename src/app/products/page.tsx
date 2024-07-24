@@ -1,15 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 import { IProduct } from "@/app/page";
 import Image from "next/image";
 import Link from "next/link";
 
-const Product = () => {
-  const id = useSearchParams().get("id");
+const Product = ({ searchParams }: { searchParams: {id: number} }) => {
+  const params = useParams();
   const [product, setProduct] = useState<IProduct>();
+
+  const id = searchParams.id;
+  
+  
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/" + id)
